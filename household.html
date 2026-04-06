@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sacha Tours — Maison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" data-i18n="meta.siteName">Sacha Tours</a>
+      <nav class="nav-main">
+        <a href="index.html" data-i18n="nav.home">Accueil</a>
+        <a href="tours.html" data-i18n="nav.tours">Tours</a>
+        <a href="household.html" class="active" data-i18n="nav.household">Maison</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="lang-switcher">
+        <button type="button" data-lang="sr">SR</button>
+        <button type="button" data-lang="it">IT</button>
+        <button type="button" data-lang="fr">FR</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="household-intro">
+      <h1 data-i18n="household.pageTitle">Notre maison</h1>
+      <p id="household-desc"></p>
+    </div>
+    <div class="household-offers">
+      <h2 data-i18n="household.offersTitle">Ce que nous offrons</h2>
+      <ul id="household-offers-list"></ul>
+    </div>
+    <div class="household-gallery" id="household-gallery"></div>
+    <div class="household-social">
+      <h3 data-i18n="household.followUs">Suivez-nous</h3>
+      <div class="social-links" id="household-social-links"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html" data-i18n="meta.siteName">Sacha Tours</a> — <a href="contact.html" data-i18n="nav.contact">Contact</a></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; }
+      function assetUrl(path) {
+        if (!path || /^https?:\/\//i.test(path)) return path || '';
+        try { return new URL(path, window.location.href).href; } catch (e) { return path; }
+      }
+      function renderHousehold() {
+        var c = window.Sacha && window.Sacha.content();
+        if (!c || !c.household) return;
+        var lang = window.Sacha.lang();
+        var H = c.household;
+        var descEl = document.getElementById('household-desc');
+        if (descEl) descEl.textContent = H.description && (H.description[lang] || H.description.fr) || '';
+        var list = document.getElementById('household-offers-list');
+        if (list && H.offers && H.offers.length) {
+          list.innerHTML = H.offers.map(function (o) {
+            var text = typeof o === 'object' ? (o[lang] || o.fr) : o;
+            return '<li>' + escapeHtml(text) + '</li>';
+          }).join('');
+        }
+        var gallery = document.getElementById('household-gallery');
+        if (gallery && H.images && H.images.length) {
+          var altBase = (H.galleryImageAlt && (H.galleryImageAlt[lang] || H.galleryImageAlt.fr)) || '';
+          gallery.innerHTML = H.images.map(function (src, i) {
+            var u = assetUrl(src);
+            var alt = altBase ? (altBase + ' ' + (i + 1)) : String(i + 1);
+            return '<img src="' + escapeHtml(u) + '" alt="' + escapeHtml(alt) + '" loading="lazy">';
+          }).join('');
+        }
+        var links = document.getElementById('household-social-links');
+        if (links) {
+          var html = '';
+          if (H.facebook) html += '<a href="' + escapeHtml(H.facebook) + '" target="_blank" rel="noopener">Facebook</a>';
+          if (H.instagram) html += '<a href="' + escapeHtml(H.instagram) + '" target="_blank" rel="noopener">Instagram</a>';
+          links.innerHTML = html || '—';
+        }
+      }
+      window.renderPageContent = renderHousehold;
+      if (window.Sacha && window.Sacha.content()) renderHousehold();
+    })();
+  </script>
+</body>
+</html>

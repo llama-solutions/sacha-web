@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sacha Tours — Détails du tour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" data-i18n="meta.siteName">Sacha Tours</a>
+      <nav class="nav-main">
+        <a href="index.html" data-i18n="nav.home">Accueil</a>
+        <a href="tours.html" class="active" data-i18n="nav.tours">Tours</a>
+        <a href="household.html" data-i18n="nav.household">Maison</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="lang-switcher">
+        <button type="button" data-lang="sr">SR</button>
+        <button type="button" data-lang="it">IT</button>
+        <button type="button" data-lang="fr">FR</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <a href="tours.html" class="back-link">← <span data-i18n="nav.tours">Tours</span></a>
+    <div class="tour-detail-header" id="tour-header">
+      <h1 id="tour-title">—</h1>
+      <p class="price-tag" id="tour-price-tag">—</p>
+    </div>
+    <div class="tour-detail-content">
+      <div>
+        <div class="tour-detail-details">
+          <h2 data-i18n="tours.detailsTitle">Détails du tour</h2>
+          <p id="tour-details">—</p>
+        </div>
+        <h3 class="tour-gallery-title" style="margin-top:1rem; color: var(--france-blue);" data-i18n="landing.gallery.sectionTitle">Galerie</h3>
+        <div class="tour-gallery" id="tour-gallery"></div>
+      </div>
+      <aside class="tour-detail-sidebar">
+        <div class="price-box" id="tour-price-box">—</div>
+        <p class="tour-booking-line"><a href="contact.html" class="contact-cta" data-i18n="nav.contact">Contact</a> <span data-i18n="tours.bookingSuffix">pour réserver ce tour.</span></p>
+      </aside>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Fermer">×</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <footer class="site-footer">
+    <p><a href="index.html" data-i18n="meta.siteName">Sacha Tours</a> — <a href="contact.html" data-i18n="nav.contact">Contact</a></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; }
+      function assetUrl(path) {
+        if (!path || /^https?:\/\//i.test(path)) return path || '';
+        try { return new URL(path, window.location.href).href; } catch (e) { return path; }
+      }
+      function getTourId() {
+        var m = /[?&]id=([^&]+)/.exec(location.search);
+        return m ? decodeURIComponent(m[1]) : null;
+      }
+      function renderTourDetail() {
+        var c = window.Sacha && window.Sacha.content();
+        if (!c || !c.tours || !c.tours.items) return;
+        var lang = window.Sacha.lang();
+        var lbCloseBtn = document.getElementById('lightbox-close');
+        if (lbCloseBtn && c.tours.lightboxClose) {
+          lbCloseBtn.setAttribute('aria-label', c.tours.lightboxClose[lang] || c.tours.lightboxClose.fr || 'Close');
+        }
+        var id = getTourId();
+        var tour = c.tours.items.filter(function (t) { return t.id === id; })[0];
+        if (!tour) {
+          var nf = c.tours.tourNotFound;
+          document.getElementById('tour-title').textContent = (nf && (nf[lang] || nf.fr)) || '—';
+          return;
+        }
+        var t = tour[lang] || tour.fr;
+        var priceFrom = (c.tours.priceFrom && (c.tours.priceFrom[lang] || c.tours.priceFrom.fr)) || '';
+        var perPerson = (c.tours.perPerson && (c.tours.perPerson[lang] || c.tours.perPerson.fr)) || '';
+        var priceStr = priceFrom + ' ' + (t.price != null ? t.price : '') + ' € ' + perPerson;
+        document.getElementById('tour-title').textContent = t.title || '';
+        document.getElementById('tour-price-tag').textContent = priceStr;
+        document.getElementById('tour-details').textContent = t.details || '';
+        document.getElementById('tour-price-box').textContent = (t.price != null ? t.price : '') + ' € ' + perPerson;
+        var gallery = document.getElementById('tour-gallery');
+        var imgs = tour.images || [];
+        gallery.innerHTML = imgs.map(function (src, i) {
+          var u = assetUrl(src);
+          return '<img src="' + escapeHtml(u) + '" alt="' + escapeHtml(t.title) + ' ' + (i + 1) + '" loading="lazy" data-lightbox>';
+        }).join('');
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lightbox-img');
+        var lbClose = document.getElementById('lightbox-close');
+        gallery.querySelectorAll('[data-lightbox]').forEach(function (img) {
+          img.addEventListener('click', function () {
+            lbImg.src = img.src;
+            lbImg.alt = img.alt;
+            lb.classList.add('active');
+            lb.setAttribute('aria-hidden', 'false');
+          });
+        });
+        function closeLb() { lb.classList.remove('active'); lb.setAttribute('aria-hidden', 'true'); }
+        if (lbClose) lbClose.addEventListener('click', closeLb);
+        lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+      }
+      window.renderPageContent = renderTourDetail;
+      if (window.Sacha && window.Sacha.content()) renderTourDetail();
+    })();
+  </script>
+</body>
+</html>

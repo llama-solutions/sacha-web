@@ -1,0 +1,381 @@
+{
+  "meta": {
+    "siteName": {
+      "sr": "Sacha Tour Serbie",
+      "it": "Sacha Tour Serbie",
+      "fr": "Sacha Tour Serbie"
+    },
+    "defaultLang": "fr"
+  },
+  "nav": {
+    "home": { "sr": "Početna", "it": "Home", "fr": "Accueil" },
+    "tours": { "sr": "Ture", "it": "Tour", "fr": "Tours" },
+    "household": { "sr": "Domaćinstvo", "it": "Casa", "fr": "Maison d'hôtes" },
+    "contact": { "sr": "Kontakt", "it": "Contatto", "fr": "Contact" }
+  },
+  "landing": {
+    "hero": {
+      "title": {
+        "sr": "Poseti Srbiju",
+        "it": "Visiti la Serbia",
+        "fr": "Visite la Serbie"
+      },
+      "subtitle": {
+        "sr": "Otkrijte lepote Srbije sa licenciranim vodičem. Personalizovane ture, autentična iskustva i nezaboravni trenuci.",
+        "it": "Scopri le bellezze della Serbia con una guida turistica autorizzata. Giri personalizzati, esperienze autentiche e momenti indimenticabili.",
+        "fr": "Découvrez les beautés de la Serbie avec un guide touristique agréé. Tours personnalisés, expériences authentiques et moments inoubliables."
+      },
+      "customNote": {
+        "sr": "Imate sopstveni itinerar? Moguće je zakazati vodiča za vaš plan putovanja.",
+        "it": "Hai il tuo itinerario? È possibile prenotare una guida per il tuo programma di viaggio.",
+        "fr": "Vous avez votre propre itinéraire ? Il est possible de réserver un guide pour votre programme de voyage."
+      }
+    },
+    "testimonials": {
+      "sectionTitle": {
+        "sr": "Šta kažu naši gosti",
+        "it": "Cosa dicono i nostri ospiti",
+        "fr": "Ce que disent nos clients"
+      },
+      "items": [
+        {
+          "sr": { "text": "Neverovatno iskustvo! Naš vodič nam je pokazao skrivene dragulje Beograda.", "author": "Marie L." },
+          "it": { "text": "Esperienza incredibile! La nostra guida ci ha mostrato i gioielli nascosti di Belgrado.", "author": "Marie L." },
+          "fr": { "text": "Expérience incroyable ! Notre guide nous a montré les joyaux cachés de Belgrade.", "author": "Marie L." }
+        },
+        {
+          "sr": { "text": "Obavezni obilazak da biste cenili bogatstvo ovog grada i saznali neke zanimljive priče. Uživali smo!", "author": "Pineau" },
+          "it": { "text": "Una tappa obbligata per apprezzare la ricchezza di questa città e scoprire storie interessanti. Ci è piaciuto tantissimo!", "author": "Pineau" },
+          "fr": { "text": "Visite indispensable pour apprécier la richesse de cette ville et entendre des anecdotes. On a adoré !", "author": "Pineau" }
+        },
+        {
+          "sr": { "text": "Smeštaj u domaćinstvu bio je savršen — čisto, mirno i autentično.", "author": "Sophie M." },
+          "it": { "text": "L'alloggio in famiglia era perfetto: pulito, tranquillo e autentico.", "author": "Sophie M." },
+          "fr": { "text": "Le logement chez l'habitant était parfait — propre, calme et authentique.", "author": "Sophie M." }
+        }
+      ]
+    },
+    "gallery": {
+      "sectionTitle": {
+        "sr": "Galerija",
+        "it": "Galleria",
+        "fr": "Galerie"
+      },
+      "imageAlt": {
+        "sr": "Fotografija iz galerije",
+        "it": "Immagine della galleria",
+        "fr": "Photo de la galerie"
+      },
+      "images": [
+        "images/tours/belgrade/4.webp",
+        "images/tours/novisad/6.webp",
+        "images/tours/hiking/4.webp",
+        "images/tours/monasteries/4.webp",
+        "images/tours/east/6.webp"
+      ]
+    },
+    "guide": {
+      "sectionTitle": {
+        "sr": "Vaš vodič",
+        "it": "La vostra guida",
+        "fr": "Votre guide"
+      },
+      "name": {
+        "sr": "Sacha Jovanović",
+        "it": "Sacha Jovanović",
+        "fr": "Sacha Jovanović"
+      },
+      "description": {
+        "sr": "Lokalni vodič sa strastju za istorijom, prirodom i gastronomijom. Obezbeđujem ture prilagođene vašim željama — od gradskih šetnji do ruralnih avantura.",
+        "it": "Guida locale con una passione per storia, natura e gastronomia. Offro tour su misura per le tue esigenze — dalle passeggiate in città alle avventure rurali.",
+        "fr": "Guide local avec une passion pour l'histoire, la nature et la gastronomie. Je propose des tours sur mesure — de balades en ville aux aventures rurales."
+      },
+      "image": "images/guide/1.webp"
+    }
+  },
+  "tours": {
+    "pageTitle": {
+      "sr": "Naše ture",
+      "it": "I nostri tour",
+      "fr": "Nos tours"
+    },
+    "pageSubtitle": {
+      "sr": "Izaberite putovanje po meri",
+      "it": "Scegli il viaggio su misura",
+      "fr": "Choisissez le voyage sur mesure"
+    },
+    "priceFrom": { "sr": "od", "it": "da", "fr": "à partir de" },
+    "perPerson": { "sr": "po osobi", "it": "a persona", "fr": "par personne" },
+    "detailsTitle": { "sr": "Detalji ture", "it": "Dettagli del tour", "fr": "Détails du tour" },
+    "bookingSuffix": {
+      "sr": "za rezervaciju ove ture.",
+      "it": "per prenotare questo tour.",
+      "fr": "pour réserver ce tour."
+    },
+    "tourNotFound": {
+      "sr": "Tura nije pronađena",
+      "it": "Tour non trovato",
+      "fr": "Tour introuvable"
+    },
+    "lightboxClose": {
+      "sr": "Zatvori",
+      "it": "Chiudi",
+      "fr": "Fermer"
+    },
+    "items": [
+      {
+        "id": "belgrade-walking",
+        "sr": {
+          "title": "Šetnja Beogradom",
+          "shortDesc": "Istorijski centar, Kalemegdan i Hram Svetog Save.",
+          "details": "Tura kroz srce Beograda: Kalemegdan i Beogradska tvrđava, Knez Mihailova, centar grada i Hram Svetog Save. Uključuje pauzu za kafu i predloge za ručak.",
+          "price": "80"
+        },
+        "it": {
+          "title": "Passeggiata a Belgrado",
+          "shortDesc": "Centro storico, Kalemegdan e Tempio di San Sava.",
+          "details": "Giro nel cuore di Belgrado: fortezza Kalemegdan, Knez Mihailova, centro storico e Tempio di San Sava. Include pausa caffè e suggerimenti per il pranzo.",
+          "price": "80"
+        },
+        "fr": {
+          "title": "Balade à Belgrade",
+          "shortDesc": "Centre historique, Kalemegdan et église de Saint-Sava.",
+          "details": "Visite dans le cœur de Belgrade : forteresse Kalemegdan, Knez Mihailova, centre historique et église de Saint-Sava. Inclut pause café et suggestions pour le déjeuner.",
+          "price": "80"
+        },
+        "images": [
+          "images/tours/belgrade/1.webp",
+          "images/tours/belgrade/2.webp",
+          "images/tours/belgrade/3.webp",
+          "images/tours/belgrade/4.webp",
+          "images/tours/belgrade/5.webp",
+          "images/tours/belgrade/6.webp",
+          "images/tours/belgrade/7.webp",
+          "images/tours/belgrade/8.webp",
+          "images/tours/belgrade/9.webp"
+        ]
+      },
+      {
+        "id": "novi-sad-fruska",
+        "sr": {
+          "title": "Novi Sad, Petrovaradin i Fruška Gora",
+          "shortDesc": "Poseta Novog Sada, Petrovaradina i Fruške Gore.",
+          "details": "Jednodnevna tura u Novom Sadu, šetnja u centru grada, poseta Petrovaradina i tvrđave, obilazak Fruške Gore, njenih manastira i vinska degustacija u Sremskim Karlovcima.",
+          "price": "150"
+        },
+        "it": {
+          "title": "Novi Sad, Petrovaradin e Fruška Gora",
+          "shortDesc": "Visita a Novi Sad, Petrovaradin e Fruška Gora.",
+          "details": "Un tour di un giorno a Novi Sad, una passeggiata nel centro città, una visita a Petrovaradin e alla fortezza, un tour di Fruška Gora, dei suoi monasteri e una degustazione di vini a Sremski Karlovci.",
+          "price": "150"
+        },
+        "fr": {
+          "title": "Novi Sad, Petrovaradin et Fruška Gora",
+          "shortDesc": "Visite de Novi Sad, de Petrovaradin et de la Fruška Gora.",
+          "details": "Une excursion d'une journée à Novi Sad, comprenant une promenade dans le centre-ville, une visite de Petrovaradin et de sa forteresse, une visite de Fruška Gora et de ses monastères, ainsi qu'une dégustation de vins à Sremski Karlovci.",
+          "price": "150"
+        },
+        "images": [
+          "images/tours/novisad/4.webp",
+          "images/tours/novisad/2.webp",
+          "images/tours/novisad/3.webp",
+          "images/tours/novisad/1.webp",
+          "images/tours/novisad/5.webp",
+          "images/tours/novisad/6.webp",
+          "images/tours/novisad/7.webp"
+        ]
+      },
+      {
+        "id": "nature-hiking",
+        "sr": {
+          "title": "Priroda i planinarenje",
+          "shortDesc": "Šetnje u nacionalnim parkovima i planinama.",
+          "details": "Jednodnevna ili višednevna avantura: Tara, Đerdap ili Kopaonik. Prilagođeno nivou grupe i vremenskim uslovima.",
+          "price": "250"
+        },
+        "it": {
+          "title": "Natura e trekking",
+          "shortDesc": "Escursioni nei parchi nazionali e in montagna.",
+          "details": "Avventura di uno o più giorni: Tara, Đerdap o Kopaonik. Adattato al livello del gruppo e alle condizioni meteorologiche.",
+          "price": "250"
+        },
+        "fr": {
+          "title": "Nature et randonnée",
+          "shortDesc": "Randonnées dans les parcs nationaux et les montagnes.",
+          "details": "Aventure d'une ou plusieurs journées : Tara, Đerdap ou Kopaonik. Adapté au niveau du groupe et aux conditions météo.",
+          "price": "250"
+        },
+        "images": [
+          "images/tours/hiking/7.webp",
+          "images/tours/hiking/2.webp",
+          "images/tours/hiking/3.webp",
+          "images/tours/hiking/4.webp",
+          "images/tours/hiking/5.webp",
+          "images/tours/hiking/6.webp",
+          "images/tours/hiking/1.webp"
+        ]
+      },
+      {
+        "id": "medieval-monasteries",
+        "sr": {
+          "title": "Srednjevekovni manastiri",
+          "shortDesc": "Poseta srednjevekovnim srpskim manastirima.",
+          "details": "Jednodnevna ili dvodnevna poseta manastirima dinastije Nemanjić: Studenica, Žiča, Sopoćani. Obilazak obuhvata i posetu gradovima Novi Pazar i Kraljevo.",
+          "price": "250"
+        },
+        "it": {
+          "title": "Monasteri medievali",
+          "shortDesc": "Visita ai monasteri serbi medievali.",
+          "details": "Tour di uno o due giorni ai monasteri della dinastia Nemanjić: Studenica, Žiča, Sopoćani. Il percorso include anche le città di Novi Pazar e Kraljevo.",
+          "price": "250"
+        },
+        "fr": {
+          "title": "Monastères médiévaux",
+          "shortDesc": "Visite de monastères serbes médiévaux.",
+          "details": "Excursion d'une ou deux journées vers les monastères de la dynastie des Nemanjić : Studenica, Žiča, Sopoćani. La visite inclut également Novi Pazar et Kraljevo.",
+          "price": "250"
+        },
+        "images": [
+          "images/tours/monasteries/4.webp",
+          "images/tours/monasteries/2.webp",
+          "images/tours/monasteries/3.webp",
+          "images/tours/monasteries/1.webp",
+          "images/tours/monasteries/5.webp",
+          "images/tours/monasteries/6.webp",
+          "images/tours/monasteries/7.webp",
+          "images/tours/monasteries/8.webp"
+        ]
+      },
+      {
+        "id": "east-serbia",
+        "sr": {
+          "title": "Istočna Srbija",
+          "shortDesc": "Obilazak poznatih znamenitosti istočne Srbije i nacionalnog parka Đerdap.",
+          "details": "Dvodnevni obilazak srednjevekovnih tvrđava na Dunavu, manastira Manasija i Ravanica, Resavske pećine i nacionalnog parka Đerdap.",
+          "price": "250"
+        },
+        "it": {
+          "title": "Serbia orientale",
+          "shortDesc": "Tour dei luoghi simbolo dell'est della Serbia e del parco nazionale di Đerdap.",
+          "details": "Due giorni tra fortezze medievali sul Danubio, i monasteri di Manasija e Ravanica, la grotta di Resava e il parco nazionale di Đerdap.",
+          "price": "250"
+        },
+        "fr": {
+          "title": "Serbie orientale",
+          "shortDesc": "Découverte des sites emblématiques de l'est de la Serbie et du parc national de Đerdap.",
+          "details": "Visite de deux jours : forteresses médiévales sur le Danube, monastères de Manasija et de Ravanica, grotte de Resava et parc national de Đerdap.",
+          "price": "250"
+        },
+        "images": [
+          "images/tours/east/5.webp",
+          "images/tours/east/2.webp",
+          "images/tours/east/3.webp",
+          "images/tours/east/4.webp",
+          "images/tours/east/1.webp",
+          "images/tours/east/6.webp",
+          "images/tours/east/7.webp",
+          "images/tours/east/8.webp"
+        ]
+      }
+    ]
+  },
+  "household": {
+    "pageTitle": {
+      "sr": "Naše domaćinstvo",
+      "it": "La nostra casa",
+      "fr": "Notre maison"
+    },
+    "description": {
+      "sr": "Dobrodošli u naš dom. Nudimo smeštaj u mirnom okruženju sa dvorištem, vrtom, domaćinskom kuhinjom i mini spa centrom. Idealno za porodice i parove koji žele autentično iskustvo.",
+      "it": "Benvenuti nella nostra casa. Offriamo alloggio in un ambiente tranquillo con cortile, giardino, cucina casalinga e anche con un mini centro benessere. Ideale per famiglie e coppie che cercano un'esperienza autentica.",
+      "fr": "Bienvenue chez nous. Nous proposons un hébergement dans un cadre calme avec cour, jardin, cuisine maison et mini spa. Idéal pour les familles et les couples en quête d'authenticité."
+    },
+    "offersTitle": {
+      "sr": "Šta nudimo",
+      "it": "Cosa offriamo",
+      "fr": "Ce que nous offrons"
+    },
+    "offers": [
+      { "sr": "Sobe sa privatnim kupatilom", "it": "Camere con bagno privato", "fr": "Chambres avec salle de bain privée" },
+      { "sr": "Doručak uključen", "it": "Colazione inclusa", "fr": "Petit-déjeuner inclus" },
+      { "sr": "Vrt i terasa", "it": "Giardino e terrazza", "fr": "Jardin et terrasse" },
+      { "sr": "Parking", "it": "Parcheggio", "fr": "Parking" }
+    ],
+    "images": [
+      "images/sesirce/bedroom.webp",
+      "images/sesirce/terrace.webp",
+      "images/sesirce/living-sectional.webp",
+      "images/sesirce/sauna.webp",
+      "images/sesirce/living-dining.webp",
+      "images/sesirce/spa-area.webp"
+    ],
+    "followUs": { "sr": "Pratite nas", "it": "Seguici", "fr": "Suivez-nous" },
+    "galleryImageAlt": {
+      "sr": "Domaćinstvo — fotografija",
+      "it": "Casa — foto",
+      "fr": "Maison d'hôtes — photo"
+    },
+    "facebook": "https://www.facebook.com/people/Domaćinstvo-Šeširče/61584151593638/",
+    "instagram": "https://www.instagram.com/domacinstvo_sesirce/"
+  },
+  "contact": {
+    "pageTitle": { "sr": "Kontakt", "it": "Contatto", "fr": "Contact" },
+    "phoneLabel": { "sr": "Telefon", "it": "Telefono", "fr": "Téléphone" },
+    "emailLabel": { "sr": "E-mail", "it": "E-mail", "fr": "E-mail" },
+    "addressLabel": { "sr": "Adresa", "it": "Indirizzo", "fr": "Adresse" },
+    "phone": "+381 64 3931737",
+    "email": "sachatoursrbija@gmail.com",
+    "address": {
+      "sr": "Hadži Đerina 1, Rudnik, Srbija",
+      "it": "Hadži Đerina 1, Rudnik, Serbia",
+      "fr": "Hadži Đerina 1, Rudnik, Serbie"
+    },
+    "socialBlockTitle": {
+      "sr": "Društvene mreže",
+      "it": "Reti sociali",
+      "fr": "Réseaux sociaux"
+    },
+    "guideSection": {
+      "sr": "Vodič",
+      "it": "Guida",
+      "fr": "Le guide"
+    },
+    "guideSocialSubtitle": {
+      "sr": "Sacha Tour Serbie — Facebook, Instagram i LinkedIn",
+      "it": "Sacha Tour Serbie — Facebook, Instagram e LinkedIn",
+      "fr": "Sacha Tour Serbie — Facebook, Instagram et LinkedIn"
+    },
+    "householdSection": {
+      "sr": "Domaćinstvo Šeširče",
+      "it": "Casa Šeširče",
+      "fr": "Maison d'hôtes Šeširče"
+    },
+    "householdSocialSubtitle": {
+      "sr": "Facebook i Instagram",
+      "it": "Facebook e Instagram",
+      "fr": "Facebook & Instagram"
+    },
+    "socialEmpty": {
+      "sr": "Linkovi će uskoro biti dostupni.",
+      "it": "I link saranno disponibili a breve.",
+      "fr": "Liens à venir."
+    },
+    "formTitle": { "sr": "Pošaljite poruku", "it": "Inviaci un messaggio", "fr": "Envoyer un message" },
+    "formName": { "sr": "Ime", "it": "Nome", "fr": "Nom" },
+    "formEmail": { "sr": "Email", "it": "Email", "fr": "Email" },
+    "formPhone": { "sr": "Telefon", "it": "Telefono", "fr": "Téléphone" },
+    "formMessage": { "sr": "Poruka", "it": "Messaggio", "fr": "Message" },
+    "formSend": { "sr": "Pošalji", "it": "Invia", "fr": "Envoyer" },
+    "formSuccess": { "sr": "Hvala! Vaša poruka je poslata.", "it": "Grazie! Il tuo messaggio è stato inviato.", "fr": "Merci ! Votre message a bien été envoyé." },
+    "formError": { "sr": "Popunite obavezna polja.", "it": "Compila i campi obbligatori.", "fr": "Veuillez remplir les champs obligatoires." },
+    "guide": {
+      "facebook": "https://www.facebook.com/people/Sacha-Tour-Serbie/61583911713067/",
+      "linkedin": "https://www.linkedin.com/in/saša-jovanović-52528a261",
+      "instagram": "https://www.instagram.com/sacha_tour_serbie/"
+    },
+    "household": {
+      "facebook": "https://www.facebook.com/people/Domaćinstvo-Šeširče/61584151593638/",
+      "instagram": "https://www.instagram.com/domacinstvo_sesirce/"
+    }
+  }
+}

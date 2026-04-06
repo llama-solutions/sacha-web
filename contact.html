@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sacha Tours — Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" data-i18n="meta.siteName">Sacha Tours</a>
+      <nav class="nav-main">
+        <a href="index.html" data-i18n="nav.home">Accueil</a>
+        <a href="tours.html" data-i18n="nav.tours">Tours</a>
+        <a href="household.html" data-i18n="nav.household">Maison</a>
+        <a href="contact.html" class="active" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="lang-switcher">
+        <button type="button" data-lang="sr">SR</button>
+        <button type="button" data-lang="it">IT</button>
+        <button type="button" data-lang="fr">FR</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="contact-page">
+    <h1 data-i18n="contact.pageTitle">Contact</h1>
+    <div class="contact-grid">
+      <div class="contact-block">
+        <h3 data-i18n="contact.phoneLabel">Téléphone</h3>
+        <p><a href="tel:+381XXXXXXXXX" id="contact-phone">+381 XX XXX XXXX</a></p>
+      </div>
+      <div class="contact-block">
+        <h3 data-i18n="contact.emailLabel">E-mail</h3>
+        <p><a href="mailto:contact@example.com" id="contact-email">contact@example.com</a></p>
+      </div>
+      <div class="contact-block" style="grid-column: 1 / -1;">
+        <h3 data-i18n="contact.addressLabel">Adresse</h3>
+        <p id="contact-address" data-i18n="contact.address">Rue exemple 123, Belgrade, Serbie</p>
+      </div>
+    </div>
+
+    <section class="contact-form-section">
+      <h2 class="contact-section-title" id="contact-form-title" data-i18n="contact.formTitle">Envoyer un message</h2>
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="contact-form-row">
+          <label for="contact-name"><span id="label-name" data-i18n="contact.formName">Nom</span> <span class="required">*</span></label>
+          <input type="text" id="contact-name" name="name" required autocomplete="name">
+        </div>
+        <div class="contact-form-row">
+          <label for="contact-email-field"><span id="label-email" data-i18n="contact.formEmail">Email</span> <span class="required">*</span></label>
+          <input type="email" id="contact-email-field" name="email" required autocomplete="email">
+        </div>
+        <div class="contact-form-row">
+          <label for="contact-phone-field"><span id="label-phone" data-i18n="contact.formPhone">Téléphone</span></label>
+          <input type="tel" id="contact-phone-field" name="phone" autocomplete="tel">
+        </div>
+        <div class="contact-form-row">
+          <label for="contact-message"><span id="label-message" data-i18n="contact.formMessage">Message</span> <span class="required">*</span></label>
+          <textarea id="contact-message" name="message" rows="5" required></textarea>
+        </div>
+        <p class="contact-form-message" id="contact-form-feedback" aria-live="polite" hidden></p>
+        <button type="submit" class="contact-form-submit" id="contact-form-send">
+          <span id="btn-send-text" data-i18n="contact.formSend">Envoyer</span>
+        </button>
+      </form>
+    </section>
+
+    <section class="contact-social-region" aria-labelledby="contact-social-region-title">
+      <h2 id="contact-social-region-title" class="contact-social-region-title" data-i18n="contact.socialBlockTitle">Réseaux sociaux</h2>
+      <div class="contact-social-grid">
+        <article class="contact-social-card" aria-labelledby="contact-social-guide-heading">
+          <header class="contact-social-card-head">
+            <span class="contact-social-card-badge contact-social-card-badge--guide" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </span>
+            <div class="contact-social-card-titles">
+              <h3 id="contact-social-guide-heading" class="contact-social-card-title" data-i18n="contact.guideSection">Le guide</h3>
+              <p class="contact-social-card-sub" data-i18n="contact.guideSocialSubtitle">Sacha Tour Serbie</p>
+            </div>
+          </header>
+          <div class="contact-social-buttons" id="contact-guide-links"></div>
+        </article>
+        <article class="contact-social-card" aria-labelledby="contact-social-house-heading">
+          <header class="contact-social-card-head">
+            <span class="contact-social-card-badge contact-social-card-badge--house" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            <div class="contact-social-card-titles">
+              <h3 id="contact-social-house-heading" class="contact-social-card-title" data-i18n="contact.householdSection">Maison d'hôtes</h3>
+              <p class="contact-social-card-sub" data-i18n="contact.householdSocialSubtitle">Facebook &amp; Instagram</p>
+            </div>
+          </header>
+          <div class="contact-social-buttons" id="contact-household-links"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html" data-i18n="meta.siteName">Sacha Tours</a> — <a href="contact.html" data-i18n="nav.contact">Contact</a></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; }
+      function renderContact() {
+        var c = window.Sacha && window.Sacha.content();
+        if (!c || !c.contact) return;
+        var lang = window.Sacha.lang();
+        var C = c.contact;
+        var phoneEl = document.getElementById('contact-phone');
+        var emailEl = document.getElementById('contact-email');
+        if (phoneEl) { phoneEl.textContent = C.phone || ''; phoneEl.href = 'tel:' + (C.phone || '').replace(/\s/g, ''); }
+        if (emailEl) { emailEl.textContent = C.email || ''; emailEl.href = 'mailto:' + (C.email || ''); }
+        var addr = document.getElementById('contact-address');
+        if (addr && C.address) addr.textContent = C.address[lang] || C.address.fr || C.address;
+        var emptyMsg = (C.socialEmpty && (C.socialEmpty[lang] || C.socialEmpty.fr)) || '—';
+        var icons = {
+          facebook: '<svg class="contact-social-btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
+          linkedin: '<svg class="contact-social-btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
+          instagram: '<svg class="contact-social-btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>'
+        };
+        function socialBtn(url, network, label) {
+          return '<a class="contact-social-btn contact-social-btn--' + escapeHtml(network) + '" href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHtml(label) + '">' +
+            icons[network] + '<span class="contact-social-btn-label">' + escapeHtml(label) + '</span></a>';
+        }
+        var guide = C.guide || {};
+        var guideLinks = document.getElementById('contact-guide-links');
+        if (guideLinks) {
+          var html = [];
+          if (guide.facebook) html.push(socialBtn(guide.facebook, 'facebook', 'Facebook'));
+          if (guide.instagram) html.push(socialBtn(guide.instagram, 'instagram', 'Instagram'));
+          if (guide.linkedin) html.push(socialBtn(guide.linkedin, 'linkedin', 'LinkedIn'));
+          guideLinks.innerHTML = html.length ? html.join('') : '<p class="contact-social-empty">' + escapeHtml(emptyMsg) + '</p>';
+        }
+        var house = C.household || {};
+        var houseLinks = document.getElementById('contact-household-links');
+        if (houseLinks) {
+          var h = [];
+          if (house.facebook) h.push(socialBtn(house.facebook, 'facebook', 'Facebook'));
+          if (house.instagram) h.push(socialBtn(house.instagram, 'instagram', 'Instagram'));
+          houseLinks.innerHTML = h.length ? h.join('') : '<p class="contact-social-empty">' + escapeHtml(emptyMsg) + '</p>';
+        }
+      }
+      window.renderPageContent = renderContact;
+      if (window.Sacha && window.Sacha.content()) renderContact();
+      var form = document.getElementById('contact-form');
+      var feedback = document.getElementById('contact-form-feedback');
+      var sendBtn = document.getElementById('contact-form-send');
+      if (form && feedback && sendBtn) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          feedback.hidden = true;
+          feedback.classList.remove('success', 'error');
+          form.querySelectorAll('.contact-form-row input.error, .contact-form-row textarea.error').forEach(function (el) { el.classList.remove('error'); });
+          var name = (form.querySelector('[name="name"]') || {}).value || '';
+          var email = (form.querySelector('[name="email"]') || {}).value || '';
+          var message = (form.querySelector('[name="message"]') || {}).value || '';
+          var lang = window.Sacha ? window.Sacha.lang() : 'fr';
+          var content = window.Sacha && window.Sacha.content();
+          var t = content && content.contact ? function (key) { var v = content.contact[key]; return v && (v[lang] || v.fr) || key; } : function (k) { return k; };
+          if (!name.trim() || !email.trim() || !message.trim()) {
+            feedback.textContent = t('formError');
+            feedback.classList.add('error');
+            feedback.hidden = false;
+            form.querySelectorAll('[name="name"], [name="email"], [name="message"]').forEach(function (el) { if (!el.value.trim()) el.classList.add('error'); });
+            return;
+          }
+          sendBtn.disabled = true;
+          feedback.textContent = t('formSuccess');
+          feedback.classList.add('success');
+          feedback.hidden = false;
+          sendBtn.disabled = false;
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

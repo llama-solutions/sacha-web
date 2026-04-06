@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sacha Tours — Accueil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" data-i18n="meta.siteName">Sacha Tours</a>
+      <nav class="nav-main">
+        <a href="index.html" class="active" data-i18n="nav.home">Accueil</a>
+        <a href="tours.html" data-i18n="nav.tours">Tours</a>
+        <a href="household.html" data-i18n="nav.household">Maison</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="lang-switcher">
+        <button type="button" data-lang="sr">SR</button>
+        <button type="button" data-lang="it">IT</button>
+        <button type="button" data-lang="fr">FR</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 data-i18n="landing.hero.title">Bienvenue en Serbie</h1>
+        <p class="subtitle" data-i18n="landing.hero.subtitle">Découvrez les beautés de la Serbie avec un guide local.</p>
+        <p class="custom-note" data-i18n="landing.hero.customNote">Vous avez votre propre itinéraire ? Il est possible de réserver un guide pour votre programme de voyage.</p>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2 class="section-title" data-i18n="landing.testimonials.sectionTitle">Ce que disent nos clients</h2>
+      <div class="testimonials-grid" id="testimonials-grid"></div>
+    </section>
+
+    <section class="gallery-section">
+      <h2 class="section-title" data-i18n="landing.gallery.sectionTitle">Galerie</h2>
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+
+    <section class="guide-section">
+      <div class="guide-image-wrap">
+        <img src="" alt="Guide" class="guide-image" id="guide-img" onerror="this.style.display='none'; this.parentElement.classList.add('img-placeholder');">
+      </div>
+      <div>
+        <h2 class="section-title" data-i18n="landing.guide.sectionTitle">Votre guide</h2>
+        <h3 data-i18n="landing.guide.name">Sacha</h3>
+        <p class="guide-desc" data-i18n="landing.guide.description">Guide local avec une passion pour l'histoire, la nature et la gastronomie.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html" data-i18n="meta.siteName">Sacha Tours</a> — <a href="contact.html" data-i18n="nav.contact">Contact</a></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      function assetUrl(path) {
+        if (!path || /^https?:\/\//i.test(path)) return path || '';
+        try {
+          return new URL(path, window.location.href).href;
+        } catch (e) {
+          return path;
+        }
+      }
+      function renderLanding() {
+        var c = window.Sacha && window.Sacha.content();
+        if (!c || !c.landing) return;
+        var lang = window.Sacha.lang();
+        var L = c.landing;
+
+        var grid = document.getElementById('testimonials-grid');
+        if (grid && L.testimonials && L.testimonials.items) {
+          grid.innerHTML = L.testimonials.items.map(function (item) {
+            var t = item[lang] || item.fr || item;
+            var text = t.text || '';
+            var author = t.author || '';
+            return '<div class="testimonial-card"><blockquote>' + escapeHtml(text) + '</blockquote><div class="author">' + escapeHtml(author) + '</div></div>';
+          }).join('');
+        }
+
+        var gallery = document.getElementById('gallery-grid');
+        if (gallery && L.gallery && L.gallery.images && L.gallery.images.length) {
+          var galAltBase = (L.gallery.imageAlt && (L.gallery.imageAlt[lang] || L.gallery.imageAlt.fr)) || '';
+          gallery.innerHTML = L.gallery.images.map(function (src, i) {
+            var u = assetUrl(src);
+            var alt = galAltBase ? (galAltBase + ' ' + (i + 1)) : String(i + 1);
+            return '<img src="' + escapeHtml(u) + '" alt="' + escapeHtml(alt) + '" loading="lazy" onerror="this.parentElement.classList.add(\'img-placeholder\'); this.parentElement.textContent=\'Image\';">';
+          }).join('');
+        }
+
+        var guideImg = document.getElementById('guide-img');
+        if (guideImg && L.guide && L.guide.image) {
+          var wrap = guideImg.parentElement;
+          guideImg.style.display = '';
+          if (wrap) wrap.classList.remove('img-placeholder');
+          guideImg.removeAttribute('src');
+          guideImg.src = assetUrl(L.guide.image);
+          guideImg.alt = L.guide.name && L.guide.name[lang] ? L.guide.name[lang] : 'Guide';
+        }
+      }
+
+      function escapeHtml(s) {
+        if (!s) return '';
+        var d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+      }
+
+      window.renderPageContent = renderLanding;
+      if (window.Sacha && window.Sacha.content()) renderLanding();
+    })();
+  </script>
+</body>
+</html>
