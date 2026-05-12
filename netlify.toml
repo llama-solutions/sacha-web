@@ -1,0 +1,9 @@
+# Static site + serverless functions (contact form → EmailJS).
+# Deploy this repo on Netlify with root as publish directory.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  directory = "netlify/functions"

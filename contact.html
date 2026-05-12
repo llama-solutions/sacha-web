@@ -154,29 +154,111 @@
       var feedback = document.getElementById('contact-form-feedback');
       var sendBtn = document.getElementById('contact-form-send');
       if (form && feedback && sendBtn) {
+        var CONTACT_LAST_SUBMIT_KEY = 'sachaContactFormLastSubmitTs';
+        var RATE_LIMIT_MS = 60 * 1000;
+        var sendBtnDefaultHtml = sendBtn.innerHTML;
+
+        function countLetters(str) {
+          var m = String(str).match(/\p{L}/gu);
+          return m ? m.length : 0;
+        }
+        function isValidEmail(s) {
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(s).trim());
+        }
+        function contactApiUrl() {
+          return '/.netlify/functions/send-contact-email';
+        }
+        function tContact(key) {
+          var content = window.Sacha && window.Sacha.content();
+          var v = content && content.contact && content.contact[key];
+          var lang = window.Sacha ? window.Sacha.lang() : 'fr';
+          return (v && (v[lang] || v.fr)) || key;
+        }
+
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           feedback.hidden = true;
           feedback.classList.remove('success', 'error');
           form.querySelectorAll('.contact-form-row input.error, .contact-form-row textarea.error').forEach(function (el) { el.classList.remove('error'); });
-          var name = (form.querySelector('[name="name"]') || {}).value || '';
-          var email = (form.querySelector('[name="email"]') || {}).value || '';
-          var message = (form.querySelector('[name="message"]') || {}).value || '';
-          var lang = window.Sacha ? window.Sacha.lang() : 'fr';
-          var content = window.Sacha && window.Sacha.content();
-          var t = content && content.contact ? function (key) { var v = content.contact[key]; return v && (v[lang] || v.fr) || key; } : function (k) { return k; };
-          if (!name.trim() || !email.trim() || !message.trim()) {
-            feedback.textContent = t('formError');
+
+          var name = ((form.querySelector('[name="name"]') || {}).value || '').trim();
+          var email = ((form.querySelector('[name="email"]') || {}).value || '').trim();
+          var phone = ((form.querySelector('[name="phone"]') || {}).value || '').trim();
+          var message = ((form.querySelector('[name="message"]') || {}).value || '').trim();
+
+          if (!name || !email || !message) {
+            feedback.textContent = tContact('formError');
             feedback.classList.add('error');
             feedback.hidden = false;
             form.querySelectorAll('[name="name"], [name="email"], [name="message"]').forEach(function (el) { if (!el.value.trim()) el.classList.add('error'); });
             return;
           }
+          if (countLetters(name) < 3) {
+            feedback.textContent = tContact('formNameInvalid');
+            feedback.classList.add('error');
+            feedback.hidden = false;
+            form.querySelector('[name="name"]').classList.add('error');
+            return;
+          }
+          if (!isValidEmail(email)) {
+            feedback.textContent = tContact('formEmailInvalid');
+            feedback.classList.add('error');
+            feedback.hidden = false;
+            form.querySelector('[name="email"]').classList.add('error');
+            return;
+          }
+          if (message.length < 10) {
+            feedback.textContent = tContact('formMessageShort');
+            feedback.classList.add('error');
+            feedback.hidden = false;
+            form.querySelector('[name="message"]').classList.add('error');
+            return;
+          }
+
+          var lastTs = parseInt(localStorage.getItem(CONTACT_LAST_SUBMIT_KEY), 10);
+          if (lastTs && !isNaN(lastTs) && Date.now() - lastTs < RATE_LIMIT_MS) {
+            feedback.textContent = tContact('formRateLimit');
+            feedback.classList.add('error');
+            feedback.hidden = false;
+            return;
+          }
+
           sendBtn.disabled = true;
-          feedback.textContent = t('formSuccess');
-          feedback.classList.add('success');
-          feedback.hidden = false;
-          sendBtn.disabled = false;
+          sendBtn.innerHTML = '<span>' + escapeHtml(tContact('formSending')) + '</span>';
+
+          fetch(contactApiUrl(), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, email: email, phone: phone, message: message }),
+          })
+            .then(function (res) {
+              return res.text().then(function (text) {
+                var data = {};
+                try { data = JSON.parse(text); } catch (err) {}
+                return { ok: res.ok, data: data };
+              });
+            })
+            .then(function (result) {
+              sendBtn.disabled = false;
+              sendBtn.innerHTML = sendBtnDefaultHtml;
+              feedback.hidden = false;
+              if (result.ok && result.data && result.data.success) {
+                try { localStorage.setItem(CONTACT_LAST_SUBMIT_KEY, String(Date.now())); } catch (ignore) {}
+                feedback.textContent = tContact('formSuccess');
+                feedback.classList.add('success');
+                form.reset();
+              } else {
+                feedback.textContent = tContact('formSendFailed');
+                feedback.classList.add('error');
+              }
+            })
+            .catch(function () {
+              sendBtn.disabled = false;
+              sendBtn.innerHTML = sendBtnDefaultHtml;
+              feedback.textContent = tContact('formSendFailed');
+              feedback.classList.add('error');
+              feedback.hidden = false;
+            });
         });
       }
     })();

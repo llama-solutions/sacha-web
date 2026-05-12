@@ -368,6 +368,32 @@
     "formSend": { "sr": "Pošalji", "it": "Invia", "fr": "Envoyer" },
     "formSuccess": { "sr": "Hvala! Vaša poruka je poslata.", "it": "Grazie! Il tuo messaggio è stato inviato.", "fr": "Merci ! Votre message a bien été envoyé." },
     "formError": { "sr": "Popunite obavezna polja.", "it": "Compila i campi obbligatori.", "fr": "Veuillez remplir les champs obligatoires." },
+    "formSending": { "sr": "Šalje se…", "it": "Invio in corso…", "fr": "Envoi en cours…" },
+    "formSendFailed": {
+      "sr": "Slanje nije uspelo. Pokušajte ponovo ili nas pozovite.",
+      "it": "Invio non riuscito. Riprova o contattaci telefonicamente.",
+      "fr": "L'envoi a échoué. Réessayez ou appelez-nous."
+    },
+    "formRateLimit": {
+      "sr": "Već ste nedavno poslali poruku. Pokušajte ponovo za minut ili nas pozovite.",
+      "it": "Hai già inviato un messaggio di recente. Riprova tra un minuto o chiamaci.",
+      "fr": "Vous venez d'envoyer un message. Réessayez dans une minute ou appelez-nous."
+    },
+    "formEmailInvalid": {
+      "sr": "Unesite ispravnu e-adresu.",
+      "it": "Inserisci un indirizzo e-mail valido.",
+      "fr": "Veuillez saisir une adresse e-mail valide."
+    },
+    "formNameInvalid": {
+      "sr": "Ime mora imati najmanje tri slova.",
+      "it": "Il nome deve contenere almeno tre lettere.",
+      "fr": "Le nom doit contenir au moins trois lettres."
+    },
+    "formMessageShort": {
+      "sr": "Poruka je prekratka (najmanje 10 znakova).",
+      "it": "Il messaggio è troppo corto (almeno 10 caratteri).",
+      "fr": "Le message est trop court (au moins 10 caractères)."
+    },
     "guide": {
       "facebook": "https://www.facebook.com/people/Sacha-Tour-Serbie/61583911713067/",
       "linkedin": "https://www.linkedin.com/in/saša-jovanović-52528a261",
