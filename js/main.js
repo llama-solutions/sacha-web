@@ -95,11 +95,63 @@
     });
   }
 
+  function initMobileNav() {
+    var toggle = document.getElementById('nav-menu-toggle');
+    var panel = document.getElementById('site-nav-panel');
+    var backdrop = document.getElementById('nav-backdrop');
+    if (!toggle || !panel || !backdrop) return;
+
+    var mqDesktop = window.matchMedia('(min-width: 901px)');
+
+    function setOpen(open) {
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.classList.toggle('is-open', open);
+      backdrop.classList.toggle('is-open', open);
+      backdrop.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.body.classList.toggle('nav-menu-open', open);
+    }
+
+    function closeMenu() {
+      setOpen(false);
+    }
+
+    toggle.addEventListener('click', function () {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    backdrop.addEventListener('click', closeMenu);
+
+    panel.addEventListener('click', function (e) {
+      var el = e.target;
+      if (!el || typeof el.closest !== 'function') return;
+      if (el.closest('.nav-main a') || el.closest('.lang-switcher button')) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      if (toggle.getAttribute('aria-expanded') !== 'true') return;
+      closeMenu();
+      toggle.focus();
+    });
+
+    function onViewportNavModeChange() {
+      if (mqDesktop.matches) closeMenu();
+    }
+
+    if (typeof mqDesktop.addEventListener === 'function') {
+      mqDesktop.addEventListener('change', onViewportNavModeChange);
+    } else if (typeof mqDesktop.addListener === 'function') {
+      mqDesktop.addListener(onViewportNavModeChange);
+    }
+    window.addEventListener('resize', onViewportNavModeChange);
+  }
+
   function init() {
     loadContent().then(function () {
       updatePageLang();
     });
     initLangSwitcher();
+    initMobileNav();
   }
 
   if (document.readyState === 'loading') {

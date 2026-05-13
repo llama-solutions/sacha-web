@@ -28,18 +28,24 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="site-logo" data-i18n="meta.siteName">Sacha Tours</a>
-      <nav class="nav-main">
-        <a href="index.html" data-i18n="nav.home">Accueil</a>
-        <a href="tours.html" data-i18n="nav.tours">Tours</a>
-        <a href="household.html" class="active" data-i18n="nav.household">Maison</a>
-        <a href="contact.html" data-i18n="nav.contact">Contact</a>
-      </nav>
-      <div class="lang-switcher">
-        <button type="button" data-lang="sr">SR</button>
-        <button type="button" data-lang="it">IT</button>
-        <button type="button" data-lang="fr">FR</button>
+      <button type="button" class="nav-menu-toggle" id="nav-menu-toggle" aria-expanded="false" aria-controls="site-nav-panel" aria-label="Menu">
+        <span class="nav-menu-bar" aria-hidden="true"></span>
+      </button>
+      <div class="header-nav-cluster" id="site-nav-panel">
+        <nav class="nav-main">
+          <a href="index.html" data-i18n="nav.home">Accueil</a>
+          <a href="tours.html" data-i18n="nav.tours">Tours</a>
+          <a href="household.html" class="active" data-i18n="nav.household">Maison</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div class="lang-switcher">
+          <button type="button" data-lang="sr">SR</button>
+          <button type="button" data-lang="it">IT</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
       </div>
     </div>
+    <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
   </header>
 
   <main>
