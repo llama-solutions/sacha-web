@@ -36,7 +36,7 @@
       </div>
       <div class="contact-block">
         <h3 data-i18n="contact.emailLabel">E-mail</h3>
-        <p><a href="mailto:contact@example.com" id="contact-email">contact@example.com</a></p>
+        <p><a href="mailto:sachatour.visitelaserbie@gmail.com" id="contact-email">sachatour.visitelaserbie@gmail.com</a></p>
       </div>
       <div class="contact-block" style="grid-column: 1 / -1;">
         <h3 data-i18n="contact.addressLabel">Adresse</h3>
@@ -156,7 +156,6 @@
       if (form && feedback && sendBtn) {
         var CONTACT_LAST_SUBMIT_KEY = 'sachaContactFormLastSubmitTs';
         var RATE_LIMIT_MS = 60 * 1000;
-        var sendBtnDefaultHtml = sendBtn.innerHTML;
 
         function countLetters(str) {
           var m = String(str).match(/\p{L}/gu);
@@ -173,6 +172,11 @@
           var v = content && content.contact && content.contact[key];
           var lang = window.Sacha ? window.Sacha.lang() : 'fr';
           return (v && (v[lang] || v.fr)) || key;
+        }
+        function restoreSendButton() {
+          var label = tContact('formSend');
+          sendBtn.innerHTML =
+            '<span id="btn-send-text" data-i18n="contact.formSend">' + escapeHtml(label) + '</span>';
         }
 
         form.addEventListener('submit', function (e) {
@@ -240,7 +244,7 @@
             })
             .then(function (result) {
               sendBtn.disabled = false;
-              sendBtn.innerHTML = sendBtnDefaultHtml;
+              restoreSendButton();
               feedback.hidden = false;
               if (result.ok && result.data && result.data.success) {
                 try { localStorage.setItem(CONTACT_LAST_SUBMIT_KEY, String(Date.now())); } catch (ignore) {}
@@ -254,7 +258,7 @@
             })
             .catch(function () {
               sendBtn.disabled = false;
-              sendBtn.innerHTML = sendBtnDefaultHtml;
+              restoreSendButton();
               feedback.textContent = tContact('formSendFailed');
               feedback.classList.add('error');
               feedback.hidden = false;
