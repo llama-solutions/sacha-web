@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://sachatourserbie.com/</loc><changefreq>weekly</changefreq><priority>1</priority></url>
+  <url><loc>https://sachatourserbie.com/tours.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sachatourserbie.com/household.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sachatourserbie.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sachatourserbie.com/tour-detail.html?id=belgrade-walking</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sachatourserbie.com/tour-detail.html?id=novi-sad-fruska</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sachatourserbie.com/tour-detail.html?id=nature-hiking</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sachatourserbie.com/tour-detail.html?id=medieval-monasteries</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sachatourserbie.com/tour-detail.html?id=east-serbia</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>

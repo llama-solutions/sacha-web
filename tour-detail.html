@@ -3,7 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sacha Tours — Détails du tour</title>
+  <meta id="meta-desc" name="description" content="Détails d'une excursion en Serbie : programme, tarifs et photos. Réservation — Sacha Tour Serbie.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#002395">
+  <link id="seo-canonical" rel="canonical" href="https://sachatourserbie.com/tours.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sacha Tour Serbie">
+  <meta id="og-title" property="og:title" content="Sacha Tour Serbie — Détails du tour">
+  <meta id="og-desc" property="og:description" content="Détails d'une excursion en Serbie — Sacha Tour Serbie.">
+  <meta id="og-url" property="og:url" content="https://sachatourserbie.com/tour-detail.html">
+  <meta id="og-image" property="og:image" content="https://sachatourserbie.com/images/tours/belgrade/1.webp">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta id="tw-title" name="twitter:title" content="Sacha Tour Serbie — Détails du tour">
+  <meta id="tw-desc" name="twitter:description" content="Détails d'une excursion en Serbie — Sacha Tour Serbie.">
+  <meta id="tw-image" name="twitter:image" content="https://sachatourserbie.com/images/tours/belgrade/1.webp">
+  <title>Sacha Tour Serbie — Détails du tour</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
@@ -80,9 +95,40 @@
         }
         var id = getTourId();
         var tour = c.tours.items.filter(function (t) { return t.id === id; })[0];
+        var base = 'https://sachatourserbie.com';
+        function setSeo(opts) {
+          var d = document.getElementById('meta-desc');
+          var can = document.getElementById('seo-canonical');
+          var ogt = document.getElementById('og-title');
+          var ogd = document.getElementById('og-desc');
+          var ogu = document.getElementById('og-url');
+          var ogi = document.getElementById('og-image');
+          var twt = document.getElementById('tw-title');
+          var twd = document.getElementById('tw-desc');
+          var twi = document.getElementById('tw-image');
+          if (opts.title) document.title = opts.title;
+          if (d && opts.description != null) d.setAttribute('content', opts.description);
+          if (can && opts.canonical) can.setAttribute('href', opts.canonical);
+          if (ogt && opts.ogTitle != null) ogt.setAttribute('content', opts.ogTitle);
+          if (ogd && opts.ogDescription != null) ogd.setAttribute('content', opts.ogDescription);
+          if (ogu && opts.ogUrl) ogu.setAttribute('content', opts.ogUrl);
+          if (ogi && opts.ogImage) ogi.setAttribute('content', opts.ogImage);
+          if (twt && opts.ogTitle != null) twt.setAttribute('content', opts.ogTitle);
+          if (twd && opts.ogDescription != null) twd.setAttribute('content', opts.ogDescription);
+          if (twi && opts.ogImage) twi.setAttribute('content', opts.ogImage);
+        }
         if (!tour) {
           var nf = c.tours.tourNotFound;
           document.getElementById('tour-title').textContent = (nf && (nf[lang] || nf.fr)) || '—';
+          setSeo({
+            title: ((nf && (nf[lang] || nf.fr)) || 'Tour') + ' — Sacha Tour Serbie',
+            description: 'Sacha Tour Serbie — excursions guidées en Serbie.',
+            canonical: base + '/tours.html',
+            ogTitle: 'Sacha Tour Serbie',
+            ogDescription: 'Excursions en Serbie — Sacha Tour Serbie.',
+            ogUrl: base + '/tours.html',
+            ogImage: base + '/images/tours/belgrade/1.webp',
+          });
           return;
         }
         var t = tour[lang] || tour.fr;
@@ -113,6 +159,19 @@
         function closeLb() { lb.classList.remove('active'); lb.setAttribute('aria-hidden', 'true'); }
         if (lbClose) lbClose.addEventListener('click', closeLb);
         lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+
+        var pageUrl = base + '/tour-detail.html?id=' + encodeURIComponent(id);
+        var desc = (t.title || '') + ' — ' + (t.shortDesc || '');
+        var firstImg = imgs.length ? assetUrl(imgs[0]) : base + '/images/tours/belgrade/1.webp';
+        setSeo({
+          title: (t.title || '') + ' — Sacha Tour Serbie',
+          description: desc,
+          canonical: pageUrl,
+          ogTitle: (t.title || '') + ' — Sacha Tour Serbie',
+          ogDescription: t.shortDesc || desc,
+          ogUrl: pageUrl,
+          ogImage: firstImg,
+        });
       }
       window.renderPageContent = renderTourDetail;
       if (window.Sacha && window.Sacha.content()) renderTourDetail();
